@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  tdd:
+    name: Run PHPUnit
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php_version: ['7.3', '7.4', '8.0']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php_version }}
+
+      - name: Install composer
+        run: |
+          wget -qO- composer-setup.php https://getcomposer.org/installer | php -- composer-setup.php
+          composer --version
+
+      - name: Install dependencies
+        run: composer install
+
+      - name: Execute tests
+        run: composer phpunit
+
+  codeQuality:
+    name: "Check code with ${{ matrix.command }}"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        command: ['phpcs']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+
+      - name: Install composer
+        run: |
+          wget -qO- composer-setup.php https://getcomposer.org/installer | php -- composer-setup.php
+          composer --version
+
+      - name: Install dependencies
+        run: composer install
+
+      - name: Check Code
+        run: composer ${{ matrix.command }}
