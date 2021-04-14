@@ -1,7 +1,7 @@
-:star2: Braspag Pagador SDK PHP
+:star2: Braspag Split SDK PHP
 -----------------------
 
-Este SDK tem o objetivo de facilitar a integração de aplicações PHP com a API de pagamento da Braspag.
+Este SDK tem o objetivo de facilitar a integração de aplicações PHP com a solução de pagamento Split da Braspag.
 
 :hammer: Instalação
 -------------------
@@ -27,26 +27,6 @@ composer require v5market/braspag-split-sdk-php
 
 [Acessar documentação](https://v5market.github.io/braspag-split-sdk-php)
 
-:computer: Exemplos
--------------------
-
-Siga o passo a passo abaixo:
-
-1. Instale as dependências do SDK utilizando o *composer*
-
-```bash
-composer install
-```
-
-2. Acesse a pasta _samples_ e crie o arquivo `.env` com as credenciais
-
-```env
-BRASPAG_MERCHANT_ID=""
-BRASPAG_MERCHANT_KEY=""
-```
-
-3. Execute os arquivos PHP, por exemplo:
-
-```bash
-php 09-pix.php
-```
+:page_with_curl: Licença
+-----------------------------
+Este projeto é livre sob a [Licença GPL V3](https://github.com/v5market/braspag-split-sdk-php/blob/main/LICENSE).
