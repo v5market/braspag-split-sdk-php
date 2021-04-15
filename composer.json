@@ -1,5 +1,6 @@
 {
   "name": "v5market/braspag-split-sdk-php",
+  "description": "Este SDK tem o objetivo de facilitar a integração de aplicações PHP com a solução de pagamento Split da Braspag.",
   "type": "library",
   "license": "GPL-3.0-or-later",
   "authors": [
